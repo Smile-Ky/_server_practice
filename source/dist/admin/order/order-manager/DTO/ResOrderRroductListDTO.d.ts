@@ -1,0 +1,30 @@
+export declare class ResOrderRroductListDTO {
+    order_id: string;
+    order_state: string;
+    order_create_date: Date;
+    order_item_code: string;
+    product_code: string;
+    product_image_url: string;
+    product_name: string;
+    option_name: string;
+    brand_id: string;
+    brand_name: string;
+    product_sale_price: number;
+    order_product_count: number;
+    payment_price: number;
+    order_user_phone: string;
+    recipient_name: string;
+    recipient_phone: string;
+    order_payment_method: string;
+    order_payment_platform: string;
+    deposit_date: Date;
+    delivery_price: string;
+    delivery_company_id: string;
+    delivery_company_name: string;
+    delivery_invoice_code: string;
+    delivery_preparing_date: Date;
+    delivery_start_date: Date;
+    delivery_end_date: Date;
+    constructor(partial: Partial<ResOrderRroductListDTO>);
+}
+export declare const ResOrderRroductListData: {};

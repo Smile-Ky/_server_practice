@@ -1,0 +1,50 @@
+import { ResOrderItemDTO } from "./ResOrderItemDTO";
+export declare class ResOrderListDTO {
+    data: Array<ResOrderItemDTO>;
+    constructor(partial: Partial<ResOrderListDTO>);
+}
+export declare const ResOrderListData: {
+    data: {
+        order_detail_id: string;
+        order_state: string;
+        product_code: string;
+        product_image_url: string;
+        order_product_count: any;
+        order_user_phone: string;
+        recipient_name: any;
+        recipient_phone: any;
+        order_payment_method: any;
+        order_payment_platform: any;
+        delivery_price: any;
+        delivery_company_id: any;
+        delivery_invoice_code: any;
+        delivery_preparing_date: any;
+        delivery_start_date: any;
+        delivery_end_date: any;
+        confirm_date: any;
+        claim_reason: any;
+        claim_date: any;
+        claim_method: any;
+        return_delivery_company_name: any;
+        return_delivery_invoice_code: any;
+        order_id: string;
+        product_option_id: string;
+        brand_id: string;
+        product_sale_price: any;
+        order_code: string;
+        order_create_date: any;
+        order_email_address: string;
+        deposit_date: any;
+        order_price: string;
+        order_mileage: string;
+        order_delivery: string;
+        planning_discount: string;
+        coupon_discount: string;
+        member_discount: string;
+        special_discount: string;
+        member_id: string;
+        image_url: string;
+        brand_name: string;
+        product_name: string;
+    }[];
+};

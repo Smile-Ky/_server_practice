@@ -1,0 +1,38 @@
+import { OrderDeliveryService } from "./order-delivery.service";
+import { Response } from "express";
+import { ReqOrderDeliverySearchCommonDTO } from "./DTO/ReqOrderDeliverySearchCommonDTO";
+import { ReqOrderPreDepositDTO } from "./DTO/ReqOrderPreDepositDTO";
+import { ReqOrderPreDepositStatusDTO } from "./DTO/ReqOrderPreDepositStatusDTO";
+import { ReqOrderDepositStatusDTO } from "./DTO/ReqOrderDepositStatusDTO";
+import { ReqOrderDelayStatusDTO } from "./DTO/ReqOrderDelayStatusDTO";
+import { ReqOrderDeliverySearchDepositDTO } from "./DTO/ReqOrderDeliverySearchDepositDTO";
+import { ReqOrderDeliverySearchReadyDTO } from "./DTO/ReqOrderDeliverySearchReadyDTO";
+import { ReqOrderDeliveryStatusDTO } from "./DTO/ReqOrderDeliveryStatusDTO";
+import { ReqOrderDeliverySearchDeliveryDTO } from "./DTO/ReqOrderDeliverySearchDeliveryDTO";
+import { ReqOrderFinishStatusDTO } from "./DTO/ReqOrderFinishStatusDTO";
+import { ReqOrderDeliverySearchFinishDTO } from "./DTO/ReqOrderDeliverySearchFinishDTO";
+import { ReqOrderDeliverySearchConfirmDTO } from "./DTO/ReqOrderDeliverySearchConfirmDTO";
+export declare class OrderDeliveryController {
+    private readonly orderDeliveryService;
+    constructor(orderDeliveryService: OrderDeliveryService);
+    findAllPreDeposit(page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+    findPreDeposit(req: ReqOrderPreDepositDTO, page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+    putPreDepositStatus(req: ReqOrderPreDepositStatusDTO, res: Response): Promise<Response<any, Record<string, any>>>;
+    findAllDeposit(page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+    findDeposit(req: ReqOrderDeliverySearchCommonDTO, page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+    putDepositStatus(req: ReqOrderDepositStatusDTO, res: Response): Promise<Response<any, Record<string, any>>>;
+    findAllOrderDelay(page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+    findOrderDelay(req: ReqOrderDeliverySearchDepositDTO, page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+    putOrderDelay(req: ReqOrderDelayStatusDTO, res: Response): Promise<Response<any, Record<string, any>>>;
+    findAllOrderReady(page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+    findOrderReady(req: ReqOrderDeliverySearchReadyDTO, page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+    putOrderReady(req: ReqOrderDelayStatusDTO, res: Response): Promise<Response<any, Record<string, any>>>;
+    findAllOrderDelivery(page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+    findOrderDelivery(req: ReqOrderDeliverySearchDeliveryDTO, page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+    putOrderDelivery(req: ReqOrderDeliveryStatusDTO, res: Response): Promise<Response<any, Record<string, any>>>;
+    findAllOrderFinish(page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+    findOrderFinish(req: ReqOrderDeliverySearchFinishDTO, page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+    putOrderFinish(req: ReqOrderFinishStatusDTO, res: Response): Promise<Response<any, Record<string, any>>>;
+    findAllOrderConfirm(page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+    findOrderConfirm(req: ReqOrderDeliverySearchConfirmDTO, page: number, pageSize: number, res: Response): Promise<Response<any, Record<string, any>>>;
+}

@@ -1,0 +1,29 @@
+export declare class ReqCouponSaveDTO {
+    coupon_name: string;
+    coupon_description: string;
+    coupon_use_range: string;
+    coupon_is_use: string;
+    delivery_coupon_yn: string;
+    discount_type: string;
+    discount_text: string;
+    digit_number: string;
+    round: string;
+    minimum_purchase_amount: Boolean;
+    minimum_purchase_amount_text: string;
+    maximum_discount: Boolean;
+    maximum_discount_text: string;
+    discountable_products: string;
+    product_class_id_list: Array<string>;
+    product_id_list: Array<string>;
+    issued_method: string;
+    automatic_issuance: string;
+    issued_user_class: string;
+    issued_user_class_id: Array<string>;
+    coupon_date_range: string;
+    use_range_start: Date;
+    use_range_end: Date;
+    use_range_text: string;
+    use_range_enum: string;
+    issued_range_start: Date;
+    issued_range_end: Date;
+}
