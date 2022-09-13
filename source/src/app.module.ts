@@ -15,7 +15,7 @@ import { FlightModule } from './flight/flight.module';
       BookModule,
       TypeOrmModule.forRoot({
           type: 'mysql',
-          host: 'localhost',
+          host: '43.200.235.85',
           port: 3306,
           username: 'root',
           password: '12341234',
