@@ -25,12 +25,12 @@ export class UserController {
                   @Res() res: Response){
     try {
       Logger.log('controller')
-      return res.status(200).json(
-        await this.userService.addInvest(userInvest)
-      )
+      //return res.status(200).json(
+      //  await this.userService.addInvest(userInvest)
+      //)
     } catch (error) {
       Logger.error(error)
-      return res.status(500).json(error);
+      //return res.status(500).json(error);
     }
   }
 }
