@@ -25,7 +25,7 @@ export class UserController {
                   @Req() res: Response){
     try {
       return res.status(200).json(
-        await this.userService.addInvest()
+        await this.userService.addInvest(userInvest)
       )
     } catch (error) {
       Logger.error(error)

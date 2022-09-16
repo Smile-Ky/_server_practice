@@ -11,6 +11,7 @@ export class ProductController {
     try{
         var today = new Date()
         var date = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + (today.getDay())).slice(-2)
+        Logger.log(date)
         return res.status(200).json(
           await this.productService.findAll(date)
         );
