@@ -22,7 +22,7 @@ export class UserController {
 
   @Post()
   async addInvest(@Body() userInvest: userInvestDto,
-                  @Req() res: Response){
+                  @Res() res: Response){
     try {
       Logger.log('controller')
       return res.status(200).json(
