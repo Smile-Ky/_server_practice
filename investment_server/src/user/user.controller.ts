@@ -24,6 +24,7 @@ export class UserController {
   async addInvest(@Body() userInvest: userInvestDto,
                   @Req() res: Response){
     try {
+      Logger.log('controller')
       return res.status(200).json(
         await this.userService.addInvest(userInvest)
       )

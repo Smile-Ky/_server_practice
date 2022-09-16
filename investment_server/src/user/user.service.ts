@@ -22,8 +22,8 @@ export class UserService {
 
     async addInvest(userInvest: userInvestDto){
         try {
+            Logger.log('service')
             return await this.userRepository.addInvest(userInvest)
-
         //▪ 총 투자모집 금액(total_investing_amount)을 넘어서면 sold-out 상태를 응답합니다.
         } catch (error) {
             Logger.error(error)

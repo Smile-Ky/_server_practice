@@ -19,6 +19,7 @@ export class UserRepository extends Repository<UserEntity>{
 
     async addInvest(userInvest: userInvestDto){
         try {
+            Logger.log('repository')
             return await this.createQueryBuilder()
                 .insert()
                 .into('investment')
