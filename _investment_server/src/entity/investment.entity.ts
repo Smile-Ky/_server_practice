@@ -6,21 +6,21 @@ import { UserEntity } from "./user.entity";
 export class InvestmentEntity extends BaseEntity{
 
     @PrimaryGeneratedColumn({type: 'int'})
-    investment_id: string;
+    investment_id: number;
 
-    @Column({type: 'int', nullable: true})
-    investment: string;
+    @Column({type: 'int', nullable: true, default: 0})
+    investment: number;
 
     @Column({type: 'datetime', default: () => "NOW()"})
-    date: string;
+    date: Date;
 
     @ManyToOne(type => UserEntity, user => user.user_id)
     @JoinColumn({name: 'user_id'})
-    user: UserEntity;
+    user_id: UserEntity;
 
     @ManyToOne(type => ProductEntity, product => product.product_id)
     @JoinColumn({name: 'product_id'})
-    product: ProductEntity;
+    product_id: ProductEntity;
 }
 //num_user, current_amount, state 는 querybuilder 에서 as 로 만들기...
 

@@ -8,7 +8,7 @@ export class ProductService {
         @InjectRepository(ProductRepository) private productRepository : ProductRepository
       ){}
       
-    async findAll(date : string){
+    async findAll(date : Date){
         try {
             return await this.productRepository.findAll(date);
         } catch (error) {

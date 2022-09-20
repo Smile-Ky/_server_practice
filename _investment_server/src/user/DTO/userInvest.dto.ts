@@ -1,13 +1,13 @@
-import { IsString } from 'class-validator';
+import { IsNumber } from "class-validator";
 
 export class userInvestDto {
+    
+    @IsNumber()
+    user_id : number;
 
-    @IsString()
-    user_id : string;
+    @IsNumber()
+    product_id : number;
 
-    @IsString()
-    product_id : string;
-
-    @IsString()
-    investment : string;
+    @IsNumber()
+    investment : number;
 }

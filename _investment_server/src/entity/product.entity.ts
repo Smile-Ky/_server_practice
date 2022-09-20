@@ -4,13 +4,13 @@ import { BaseEntity, Column, Entity, PrimaryColumn } from "typeorm";
 export class ProductEntity extends BaseEntity{  
 
   @PrimaryColumn({type : 'int', nullable: false})
-  product_id : string;
+  product_id : number;
 
   @Column({type : "varchar", length : 45, nullable: true})
   title : string;
 
   @Column({type : "int", nullable: true})
-  total_amount : string;
+  total_amount :number;
 
   @Column({type : "datetime", nullable: true})
   started_at : Date;

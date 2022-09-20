@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Logger, Post, Query, Req, Res} from '@nestjs/common';
+import { Body, Controller, Get, Logger, Post, Query, Res} from '@nestjs/common';
 import { UserService } from './user.service';
 import { Response } from 'express';
 import { userInvestDto } from './DTO/userInvest.dto';
@@ -8,7 +8,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
-  async findAll(@Query('user_id') user_id: string,
+  async findAll(@Query('user_id') user_id: number,
                 @Res() res: Response){
     try {
       return res.status(200).json(
@@ -24,7 +24,6 @@ export class UserController {
   async addInvest(@Body() userInvest: userInvestDto,
                   @Res() res: Response){
     try {
-      Logger.log('controller')
       return res.status(200).json(
         await this.userService.addInvest(userInvest)
       )

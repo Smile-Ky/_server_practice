@@ -1,30 +1,30 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ProductRepository } from 'src/repository/product.repository';
 import { UserRepository } from 'src/repository/user.repository';
-import { json } from 'stream/consumers';
 import { userInvestDto } from './DTO/userInvest.dto';
 
 @Injectable()
 export class UserService {
     constructor(
-        @InjectRepository(UserRepository) private userRepository : UserRepository
+        @InjectRepository(UserRepository) private userRepository : UserRepository,
+        @InjectRepository(ProductRepository) private productRepository : ProductRepository
     ){}
 
-    async findAll(user_id: string){
+    async findAll(user_id: number){
         try {
-            return await this.userRepository.findAll(user_id)
+            return await this.productRepository.getUser(user_id)
         } catch (error) {
             Logger.error(error)
             throw error
         }
     }
 
-    
-
     async addInvest(userInvest: userInvestDto){
         try {
+            const investment = await this.productRepository.getInvest(userInvest.product_id)
+            if(userInvest.investment + parseInt(investment[0].current_amount) > parseInt(investment[0].p_total_amount)){return 'sold-out'}
             return await this.userRepository.addInvest(userInvest)
-        //▪ 총 투자모집 금액(total_investing_amount)을 넘어서면 sold-out 상태를 응답합니다.
         } catch (error) {
             Logger.error(error)
             throw error
