@@ -3,13 +3,12 @@ import { UserEntity } from "../entity/user.entity";
 import { EntityRepository, Repository } from "typeorm";
 import { userInvestDto } from "src/user/DTO/userInvest.dto";
 
-
 @EntityRepository(UserEntity)
 export class UserRepository extends Repository<UserEntity>{
 
     async addInvest(userInvest: userInvestDto){
         try {
-            return await this.createQueryBuilder()
+            const invest = await this.createQueryBuilder()
                 .insert()
                 .into('investment')
                 .values([
@@ -19,11 +18,28 @@ export class UserRepository extends Repository<UserEntity>{
                         investment: `${userInvest.investment}`
                     }
                 ])
-                .execute()
+        } catch (error) {
+            Logger.error(error)
+            throw error
+        }
+    }
+    
+    async addHistory(userInvest: userInvestDto){
+        try {
+            return
         } catch (error) {
             Logger.error(error)
             throw error
         }
     }
 
+    async getHistory(user_id: number){
+        try {
+
+            return
+        } catch (error) {
+            Logger.error(error)
+            throw error
+        }
+    }
 }

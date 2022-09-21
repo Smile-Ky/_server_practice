@@ -8,6 +8,7 @@ import { UserEntity } from './entity/user.entity';
 import { ProductEntity } from './entity/product.entity';
 import { InvestmentEntity } from './entity/investment.entity';
 import { APP_PIPE } from '@nestjs/core';
+import { HistoryEntity } from './entity/history.entity';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import { APP_PIPE } from '@nestjs/core';
       entities: [
         UserEntity,
         ProductEntity,
-        InvestmentEntity
+        InvestmentEntity,
+        HistoryEntity
       ],
       synchronize: true
   }),
