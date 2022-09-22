@@ -20,6 +20,19 @@ export class UserController {
     }
   }
 
+  @Get('/:user_id')
+  async getHistory(@Param('user_id') user_id: number,
+                   @Res() res: Response){
+    try {
+      return res.status(200).json(
+        await this.userService.getHistory(user_id)
+      )
+    } catch (error) {
+      Logger.error(error)
+      return res.status(500).json(error)
+    }
+  }
+
   @Post()
   async addInvest(@Body() userInvest: userInvestDto,
                   @Res() res: Response){
@@ -40,7 +53,7 @@ export class UserController {
     try {
       await this.userService.deleteInvest(user_id, product_id)
       return res.status(200).json(
-        this.userService.findAll(user_id)
+        await this.userService.findAll(user_id)
       )
     } catch (error) {
       Logger.error(error)

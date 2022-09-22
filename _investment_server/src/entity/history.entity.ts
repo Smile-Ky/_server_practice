@@ -8,16 +8,21 @@ export class HistoryEntity extends BaseEntity{
     @PrimaryGeneratedColumn({type: 'int'})
     history_id: number;
 
-    @Column({type: "varchar", length : 45})
+    @Column({type: "datetime"})
+    date: Date;
+
+    @Column({type: "varchar", length : 45, nullable: true})
     title: string;
 
-    @Column({type: 'int'})
+    @Column({type: 'int', nullable: true})
     invest: number;
 
-    @Column({type: 'boolean'})
+    @Column({type: 'boolean', default: true})
     current_state: boolean;
     
-    @OneToOne(() => InvestmentEntity)
-    @JoinColumn({name: 'investment_id'})
-    investment: InvestmentEntity;
+    @Column({type: 'int'})
+    user_id: number;
+
+    @Column({type: 'int'})
+    product_id: number;
 }

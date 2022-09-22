@@ -26,9 +26,7 @@ export class UserService {
         try {
             const investment = await this.productRepository.getInvest(userInvest.product_id)
             if(userInvest.investment + parseInt(investment[0].current_amount) > parseInt(investment[0].p_total_amount)){return 'sold-out'}{
-                await this.userRepository.addInvest(userInvest)
-                await this.userRepository.addHistory(userInvest)
-                return
+                return await this.userRepository.addInvest(userInvest)
             }
         } catch (error) {
             Logger.error(error)
@@ -39,6 +37,15 @@ export class UserService {
     async deleteInvest(user_id: number, product_id: number){
         try {
             return await this.investmentRepository.deleteInvest(user_id, product_id)
+        } catch (error) {
+            Logger.error(error)
+            throw error
+        }
+    }
+
+    async getHistory(user_id: number){
+        try {
+            return await this.userRepository.getHistory(user_id)
         } catch (error) {
             Logger.error(error)
             throw error
